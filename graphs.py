@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 def emperical_distribution(x, data):
     """ Adds data and normalizes, between 0 and 1.
