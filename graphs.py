@@ -2,6 +2,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+def graph_series():
+    '''
+    This is more for example than to be used as a function call.
+    '''
+    fig, axes = plt.subplots(nrows=5, ncols=5, 
+                         sharex=True, sharey=True, 
+                         figsize=(12, 8))
+
+    for i, ax in enumerate(axes.flatten()):
+        ax.plot(xs, ys, 'o', color='grey', 
+                markeredgewidth=0, alpha=0.5, ms=2)
+        l1 = ax.plot(x, y, color = 'black')
+        # increase by 15 out of a total 500
+        l2 = ax.plot(x, models[15*i], color="purple", linewidth=2)
+        ax.text(-2.8, 0.8, str(15*i))
+    
+    axes[0, 0].set_xlim(-np.pi-pad, np.pi+pad)
+    axes[0, 0].set_ylim([-1.5, 1.5])    
+    fig.suptitle("Boosting Statges Over Time", fontsize=20)
+
+
 def emperical_distribution(x, data):
     """ Adds data and normalizes, between 0 and 1.
         INPUT:
